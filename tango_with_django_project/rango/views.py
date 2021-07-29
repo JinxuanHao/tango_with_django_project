@@ -33,7 +33,7 @@ def show_category(request, category_name_slug):
     return render(request, 'rango/category.html', context_dict)
 
 def add_category(request):
-    form = CategoryForm(request)
+    form = CategoryForm()
 
     if request.method == 'POST':
         form = CategoryForm(request.POST)
