@@ -15,6 +15,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
+    request.session.set_test_cookie()
     category_list = Category.objects.order_by('-likes')[:5]
     page_list = Page.objects.order_by('-views')[:5]
     context_dict = {}
@@ -24,6 +25,7 @@ def index(request):
     return render(request, 'rango/index.html', context=context_dict)
 
 def about(request):
+    print("TEST COOKIE WORKED!")
     return render(request, 'rango/about.html')
 
 def show_category(request, category_name_slug):
