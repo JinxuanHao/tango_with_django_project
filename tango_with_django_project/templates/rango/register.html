@@ -15,7 +15,7 @@
     <form id="user_form" method="post" action="{% url 'rango:register' %}" enctyoe="multipart/form-data">
         {% csrf_token %}
         {{ user_form.as_p }}
-        {{ prifile_form.as_p }}
+        {{ profile_form.as_p }}
         <input type="submit" name="submit" value="Register" />
     </form>
     {% endif %}
