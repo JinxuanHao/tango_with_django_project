@@ -25,7 +25,9 @@ def index(request):
     return render(request, 'rango/index.html', context=context_dict)
 
 def about(request):
-    print("TEST COOKIE WORKED!")
+    if request.session.test_cookie_worked():
+        print("TEST COOKIE WORKED!")
+        request.session.delete_test_cookie()
     return render(request, 'rango/about.html')
 
 def show_category(request, category_name_slug):
